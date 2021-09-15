@@ -4,6 +4,9 @@ import java.util.Date;
 
 // Representação de uma transação (saque, depósito...)
 public class Transacao {
+    public static final String DEBITO = "DEBITO";
+    public static final String CREDITO = "CREDITO";
+
     private Double valor;
     private Date data;
     private String tipo;
