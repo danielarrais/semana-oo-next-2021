@@ -16,20 +16,17 @@ public class Conta {
     private Double saldo;
     private ArrayList<Transacao> transacoes;
 
+    // modificador de acesso - NomeDaClasse - parametros
+    public Conta(String numero, String agencia) { // Construtor 1
+        this(numero, agencia, 0.0);
+    }
+
     // Construtores
     // modificador de acesso - NomeDaClasse - parametros
     public Conta(String numero, String agencia, Double saldo) { // Construtor 1
         this.numero = numero;
         this.agencia = agencia;
         this.saldo = saldo;
-        this.transacoes = new ArrayList<Transacao>();
-    }
-
-    // modificador de acesso - NomeDaClasse - parametros
-    public Conta(String numero, String agencia) { // Construtor 1
-        this.numero = numero;
-        this.agencia = agencia;
-        this.saldo = 0.0;
         this.transacoes = new ArrayList<Transacao>();
     }
 
@@ -46,7 +43,7 @@ public class Conta {
     }
 
     public void creditarSaldo(Double valor) {
-        if(saldo > 0) {
+        if(saldo != null) {
             saldo += valor;
             Transacao transacao = new Transacao(valor, Transacao.CREDITO);
             transacoes.add(transacao);
@@ -55,7 +52,7 @@ public class Conta {
         }
     }
 
-    private boolean podeSacar(Double saque) {
+    protected boolean podeSacar(Double saque) {
         return saldo != null && saldo > 0 && saldo >= saque;
     }
 
@@ -70,5 +67,8 @@ public class Conta {
     public ArrayList<Transacao> getTransacoes() {
         return this.transacoes;
     }
-    
+
+    protected void setSaldo(Double saldo) {
+        this.saldo = saldo;
+    }
 }
