@@ -38,7 +38,7 @@ public class Conta {
     public void debitarSaldo(Double saque) {
         if (podeSacar(saque)) {
             saldo -= saque;
-            Transacao transacao = new Transacao(saque, "DEBITO");
+            Transacao transacao = new Transacao(saque, Transacao.DEBITO);
             transacoes.add(transacao);
         } else {
             System.out.println("Não há saldo suficiente!!!");
@@ -48,6 +48,8 @@ public class Conta {
     public void creditarSaldo(Double valor) {
         if(saldo > 0) {
             saldo += valor;
+            Transacao transacao = new Transacao(valor, Transacao.CREDITO);
+            transacoes.add(transacao);
         } else {
             System.out.println("Valor inválido!!!");
         }
@@ -61,7 +63,6 @@ public class Conta {
         return saldo;
     }
 
-
     public String getNumero() {
         return this.numero;
     }
@@ -69,4 +70,5 @@ public class Conta {
     public ArrayList<Transacao> getTransacoes() {
         return this.transacoes;
     }
+    
 }
