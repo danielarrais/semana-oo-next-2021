@@ -26,8 +26,8 @@ public class Conta {
     public Conta(String numero, String agencia, Double saldo) { // Construtor 1
         this.numero = numero;
         this.agencia = agencia;
-        this.saldo = saldo;
         this.transacoes = new ArrayList<Transacao>();
+        setSaldo(saldo);
     }
 
     // Métodos (Ações)
@@ -69,6 +69,10 @@ public class Conta {
     }
 
     protected void setSaldo(Double saldo) {
-        this.saldo = saldo;
+        if(saldo != null) {
+            this.saldo = saldo;
+        } else {
+            this.saldo = 0.0;
+        }
     }
 }
