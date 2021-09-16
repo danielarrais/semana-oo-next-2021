@@ -1,0 +1,12 @@
+Conta Poupança
+
+    Caracteristicas
+        - sabe o Número conta
+        - sabe a agência
+        - sabe o saldo
+
+    Ações
+
+        - de debitar(valor)
+        - de creditar(valor)
+        - de atualizarSaldoComRendimento(rendimento)
