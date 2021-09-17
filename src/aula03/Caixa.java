@@ -33,6 +33,8 @@ public class Caixa {
         
         ContaCorrente contaCorrente = new ContaCorrente("888686-7", "005774", 100.0, 0.0);
         contaCorrente.debitarSaldo(110.0);
+
+        System.out.println(contaCorrente);
         System.out.println("Novo saldo: " + contaCorrente.getSaldo());
 
         // System.out.println(contaItau.getSaldo());

@@ -1,6 +1,6 @@
 package aula03.contaBancaria;
 
-public class ContaCorrente extends Conta{
+public class ContaCorrente extends Conta {
 
     private Double limite; // cheque especial
 

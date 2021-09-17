@@ -75,4 +75,17 @@ public class Conta {
             this.saldo = 0.0;
         }
     }
+
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " numero='" + getNumero() + "'" +
+            ", agencia='" + agencia + "'" +
+            ", saldo='" + getSaldo() + "'" +
+            ", transacoes='" + getTransacoes() + "'" +
+            "}";
+    }
+
 }
