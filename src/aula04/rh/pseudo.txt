@@ -1,0 +1,33 @@
+Empregado
+
+	Caracteristicas
+		- Nome
+		- CPF
+		- NIS
+		- Salario (protected)
+
+	Ações
+		- toString() que retorna todas as caracteritiscas do funcionário
+
+Gerente (Herda tudo de empregado)
+
+	Caracteristicas
+		- Tudo de empregado
+		- departamento que ele gerencia
+
+	Ações
+		- Retornar mesmo valor do toString de empregado + o departamento (fazer @override)
+
+
+Vendedor (Herda tudo de empregado)
+
+	Caracteristicas
+		- Tudo de empregado
+		- Percentual de comissão
+
+	Ações 
+		- Retornar mesmo valor do toString de empregado + 
+        salário + salário com comissão + percentual de comissão (fazer @override)
+		- calcularSalario() que calcula o valor do salário considerando o
+        percentual de comissão;
+
