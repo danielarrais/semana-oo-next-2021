@@ -1,0 +1,37 @@
+Veiculo
+    * Caracteristicas
+        - Cor
+        - Placa
+        - Preço
+        - Ano
+        - Ligado?
+
+    * Ações
+        - Acelerar(velocidade)
+        - Frear
+        - Ligar
+        - Desligar
+    
+    Moto (Herda tudo de veiculo)
+        * Caracteristicas
+            - Cilindradas
+            - Eletrica?
+            - Tipo
+            - Flex?
+
+    Carro (Herda tudo de veiculo)
+        * Caracteristicas 
+            - Quantidade de Portas
+            - Quantidade de lugares
+            - Tipo do cambio
+            - Potencia do motor
+
+        Ações
+            - Abrir vidro(Vidro)
+            - Fechar vidro(Vidro)
+
+        Caminhonete (Herda tudo de carro)
+            *Caracteristicas
+                - Carga máxima
+                - Tipo de cabine
+                - 4x4?
