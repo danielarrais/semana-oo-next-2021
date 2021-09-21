@@ -79,5 +79,8 @@ public class App {
         motoVerde.acelerar(120);
         motoVerde.frear();
         motoVerde.desligar();
+
+        System.out.println("Tipo de tracao: " + caminhoneteAzul.getTipoTracao());
+        System.out.println("Tipo de tracao: " + caminhoneteAzul.getTipoTracao().getDescricao());
     }
 }
