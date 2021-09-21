@@ -1,0 +1,12 @@
+Conta Poupança
+
+    Caracteristicas
+        - sabe o Número conta // tem na conta normal
+        - sabe a agência // tem na conta normal
+        - sabe o saldo // tem na conta normal
+
+    Ações
+
+        - de debitar(valor) // tem na conta normal
+        - de creditar(valor) // tem na conta normal
+        - de atualizarSaldoComRendimento(rendimento) // é exclusiva da poupança
