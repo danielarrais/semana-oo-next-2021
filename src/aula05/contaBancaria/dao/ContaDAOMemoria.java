@@ -1,13 +1,14 @@
 package aula05.contaBancaria.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import aula05.contaBancaria.Banco;
 import aula05.contaBancaria.Conta;
 
 public class ContaDAOMemoria implements ContaDAO {
 
-    private ArrayList<Conta> contas;
+    private List<Conta> contas;
 
     public ContaDAOMemoria() {
         contas = new ArrayList<Conta>();
@@ -59,12 +60,12 @@ public class ContaDAOMemoria implements ContaDAO {
     }
 
     @Override
-    public ArrayList<Conta> listar() {
+    public List<Conta> listar() {
         return contas;
     }
 
     @Override
-    public ArrayList<Conta> listarContasDoBanco(Integer numeroBanco, String nomeBanco) {
+    public List<Conta> listarContasDoBanco(Integer numeroBanco, String nomeBanco) {
         return contas;
     }
     

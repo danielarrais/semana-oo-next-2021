@@ -2,7 +2,6 @@ package aula05;
 
 import java.util.ArrayList;
 
-import aula05.contaBancaria.Banco;
 import aula05.contaBancaria.Conta;
 import aula05.contaBancaria.ContaCorrente;
 import aula05.contaBancaria.ContaPoupanca;
