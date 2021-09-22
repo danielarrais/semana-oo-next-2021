@@ -1,6 +1,6 @@
 package aula04.veiculos;
 
-public class Veiculo {
+public abstract class Veiculo {
     private String marca;
     private String cor;
     private String placa;
