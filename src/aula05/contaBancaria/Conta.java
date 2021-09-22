@@ -3,7 +3,7 @@ package aula05.contaBancaria;
 import java.util.ArrayList;
 
 // modificador de acesso - class - NomeDaClasse
-public class Conta {
+public abstract class Conta {
 
     // public static final String RENDIMENTO = "100";
 
@@ -51,9 +51,7 @@ public class Conta {
         }
     }
 
-    protected boolean podeSacar(Double saque) {
-        return saldo != null && saldo > 0 && saldo >= saque;
-    }
+    abstract protected boolean podeSacar(Double saque);
 
     public Double getSaldo() {
         return saldo;
