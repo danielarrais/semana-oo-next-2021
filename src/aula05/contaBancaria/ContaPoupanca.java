@@ -21,4 +21,9 @@ public class ContaPoupanca extends Conta {
         }
     }
 
+    @Override
+    protected boolean podeSacar(Double saque) {
+        return super.getSaldo() != null && super.getSaldo() > 0 && super.getSaldo() >= saque;
+    }
+
 }
