@@ -2,6 +2,8 @@ package aula05.contaBancaria;
 
 import java.util.ArrayList;
 
+import aula05.contaBancaria.exceptions.SaldoInsuficienteParaSaqueException;
+
 // modificador de acesso - class - NomeDaClasse
 public abstract class Conta {
 
@@ -31,13 +33,13 @@ public abstract class Conta {
 
     // Métodos (Ações)
     // modificador de acesso - tipo de retorno - NomeDaClasse - parametros
-    public void debitarSaldo(Double saque) {
+    public void debitarSaldo(Double saque) throws SaldoInsuficienteParaSaqueException {
         if (podeSacar(saque)) {
             saldo -= saque;
             Transacao transacao = new Transacao(saque, Transacao.DEBITO);
             transacoes.add(transacao);
         } else {
-            System.out.println("Não há saldo suficiente!!!");
+            throw new SaldoInsuficienteParaSaqueException();
         }
     }
 

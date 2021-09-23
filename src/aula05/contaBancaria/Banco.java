@@ -2,6 +2,8 @@ package aula05.contaBancaria;
 
 import java.util.ArrayList;
 
+import aula05.contaBancaria.exceptions.SaldoInsuficienteParaSaqueException;
+
 public class Banco {
     private String nome;
     private Integer codigo;
@@ -17,7 +19,7 @@ public class Banco {
         String contaOrigem, 
         String contaDestino,
         Double valor
-    ) {
+    ) throws SaldoInsuficienteParaSaqueException {
         Conta destino = null;
         Conta origem = null;
 
@@ -49,7 +51,7 @@ public class Banco {
         String cpf, 
         String nomeTitular,
         Double valor
-    ) {
+    ) throws SaldoInsuficienteParaSaqueException {
         Conta origem = null;
 
         for (int i = 0; i < contas.size(); i++) {

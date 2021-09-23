@@ -10,12 +10,21 @@ import aula05.contaBancaria.dao.ContaDAOBanco;
 import aula05.contaBancaria.dao.ContaDAOMemoria;
 import aula05.contaBancaria.exceptions.NumeroNulloException;
 import aula05.contaBancaria.exceptions.RegistroNaoEncontradoException;
+import aula05.contaBancaria.exceptions.SaldoInsuficienteParaSaqueException;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SaldoInsuficienteParaSaqueException {
         ContaCorrente contaCorrenteUm = new ContaCorrente("888686-7", "005774", 0.0, 100.0);
         ContaCorrente contaCorrenteDois = new ContaCorrente("888686-8", "005774", 0.0, 100.0);
         ContaPoupanca contaPoupancaUm = new ContaPoupanca("888686-9", "005774", 100.0);
+
+        try {
+            contaPoupancaUm.debitarSaldo(150.0);
+        } catch (SaldoInsuficienteParaSaqueException e) {
+            System.out.println(e.getMessage());
+        }
+
+        contaPoupancaUm.debitarSaldo(150.0);
 
         // ArrayList<Conta> listaContas = new ArrayList<Conta>();
 
@@ -38,51 +47,51 @@ public class App {
         // System.out.println("");
 
         // Conta contaGenrica = new Conta("888686-7", "005774", 5000000.00);
-        boolean ambienteTeste = true;
+        // boolean ambienteTeste = true;
 
         // Inicializa a classe de acesso aos dados
-        ContaDAO contaDAO = null;
+        // ContaDAO contaDAO = null;
 
-        if (ambienteTeste) {
-            contaDAO = new ContaDAOMemoria();
-        } else {
-            contaDAO = new ContaDAOBanco();
-        }
+        // if (ambienteTeste) {
+        //     contaDAO = new ContaDAOMemoria();
+        // } else {
+        //     contaDAO = new ContaDAOBanco();
+        // }
 
-        // Grava contas
-        contaDAO.salvar(contaCorrenteDois);
-        contaDAO.salvar(contaCorrenteDois);
-        contaDAO.salvar(contaCorrenteDois);
-        contaDAO.salvar(contaCorrenteUm);
-        contaDAO.salvar(contaPoupancaUm);
+        // // Grava contas
+        // contaDAO.salvar(contaCorrenteDois);
+        // contaDAO.salvar(contaCorrenteDois);
+        // contaDAO.salvar(contaCorrenteDois);
+        // contaDAO.salvar(contaCorrenteUm);
+        // contaDAO.salvar(contaPoupancaUm);
 
-        // Recuperou a conta
-        try {
-            Conta contaDOCliente = contaDAO.buscar("8886865-7");
-            System.out.println("Buscou a conta: " + contaDOCliente);
+        // // Recuperou a conta
+        // try {
+        //     Conta contaDOCliente = contaDAO.buscar("8886865-7");
+        //     System.out.println("Buscou a conta: " + contaDOCliente);
 
-            // Atualizar
-            contaDOCliente.creditarSaldo(100.00);
-            System.out.println("Creditou 100 da conta: " + contaDOCliente);
+        //     // Atualizar
+        //     contaDOCliente.creditarSaldo(100.00);
+        //     System.out.println("Creditou 100 da conta: " + contaDOCliente);
 
-            // Grava conta com novo saldo
-            contaDAO.atualizar(contaDOCliente);
-        } catch (RegistroNaoEncontradoException e) {
-            System.out.println(e.getMessage());
-        }
+        //     // Grava conta com novo saldo
+        //     contaDAO.atualizar(contaDOCliente);
+        // } catch (RegistroNaoEncontradoException e) {
+        //     System.out.println(e.getMessage());
+        // }
 
-        try {
-            contaDAO.buscar(null);
-        } catch (NumeroNulloException e){
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
+        // try {
+        //     contaDAO.buscar(null);
+        // } catch (NumeroNulloException e){
+        //     e.printStackTrace();
+        //     System.out.println(e.getMessage());
+        // }
 
-        // Buscou para confirmar alterações
-        Conta contaDOClienteAtualizada = contaDAO.buscar("888686-7");
-        System.out.println("Buscou a conta atualizada: " + contaDOClienteAtualizada);
+        // // Buscou para confirmar alterações
+        // Conta contaDOClienteAtualizada = contaDAO.buscar("888686-7");
+        // System.out.println("Buscou a conta atualizada: " + contaDOClienteAtualizada);
 
-        System.out.println("Total de contas em memória: " + contaDAO.listar().size());
+        // System.out.println("Total de contas em memória: " + contaDAO.listar().size());
 
         // ArrayList<Conta> listaContas = contaDAO.listarContasDoBanco(454,
         // "Santander");
