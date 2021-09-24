@@ -1,4 +1,4 @@
-package aula05.contaBancaria;
+package aula05.contaBancaria.camadaModel;
 
 import java.util.Date;
 

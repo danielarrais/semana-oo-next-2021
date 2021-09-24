@@ -1,9 +1,9 @@
-package aula05.contaBancaria.dao;
+package aula05.contaBancaria.camadaDados;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import aula05.contaBancaria.Conta;
+import aula05.contaBancaria.camadaModel.Conta;
 import aula05.contaBancaria.exceptions.NumeroNulloException;
 import aula05.contaBancaria.exceptions.RegistroNaoEncontradoException;
 

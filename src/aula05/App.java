@@ -2,12 +2,12 @@ package aula05;
 
 import java.util.ArrayList;
 
-import aula05.contaBancaria.Conta;
-import aula05.contaBancaria.ContaCorrente;
-import aula05.contaBancaria.ContaPoupanca;
-import aula05.contaBancaria.dao.ContaDAO;
-import aula05.contaBancaria.dao.ContaDAOBanco;
-import aula05.contaBancaria.dao.ContaDAOMemoria;
+import aula05.contaBancaria.camadaDados.ContaDAO;
+import aula05.contaBancaria.camadaDados.ContaDAOBanco;
+import aula05.contaBancaria.camadaDados.ContaDAOMemoria;
+import aula05.contaBancaria.camadaModel.Conta;
+import aula05.contaBancaria.camadaModel.ContaCorrente;
+import aula05.contaBancaria.camadaModel.ContaPoupanca;
 import aula05.contaBancaria.exceptions.FalhaTransacaoException;
 import aula05.contaBancaria.exceptions.NumeroNulloException;
 import aula05.contaBancaria.exceptions.RegistroNaoEncontradoException;

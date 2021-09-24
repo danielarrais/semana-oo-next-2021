@@ -1,4 +1,4 @@
-package aula05.contaBancaria;
+package aula05.contaBancaria.camadaModel;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ public class Banco {
     private Integer codigo;
     private ArrayList<Conta> contas;
 
-    public Banco(Integer codigo, String nome, ArrayList<aula05.contaBancaria.Conta> listaContas) {
+    public Banco(Integer codigo, String nome, ArrayList<aula05.contaBancaria.camadaModel.Conta> listaContas) {
         this.nome = nome;
         this.codigo = codigo;
         this.contas = listaContas;

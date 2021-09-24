@@ -1,10 +1,10 @@
-package aula05.contaBancaria.dao;
+package aula05.contaBancaria.camadaDados;
 
 import java.util.ArrayList;
 
-import aula05.contaBancaria.Conta;
+import aula05.contaBancaria.camadaModel.Conta;
 
-public class ContaDAOCsv implements ContaDAO{
+public class ContaDAOBanco implements ContaDAO{
 
     @Override
     public void salvar(Conta conta) {
