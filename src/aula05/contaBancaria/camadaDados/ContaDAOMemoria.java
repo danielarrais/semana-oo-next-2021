@@ -36,12 +36,8 @@ public class ContaDAOMemoria implements ContaDAO {
 
         for (int i = 0; i < contas.size(); i++) {
             Conta contaAtual = contas.get(i);
-            try {
-                if (numero.equals(contaAtual.numero)) {
-                    contaEncontrada = contas.get(i);
-                }
-            } catch (NullPointerException e) {
-                throw new NumeroNulloException("Você precisa informar um número valido", e);
+            if (contaAtual.numero.equals(numero)) {
+                contaEncontrada = contaAtual;
             }
         }
 
@@ -72,6 +68,18 @@ public class ContaDAOMemoria implements ContaDAO {
     @Override
     public List<Conta> listarContasDoBanco(Integer numeroBanco, String nomeBanco) {
         return contas;
+    }
+
+    @Override
+    public boolean existe(String numero) {
+        for (int i = 0; i < contas.size(); i++) {
+            Conta contaAtual = contas.get(i);
+            if (contaAtual.numero.equals(numero)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

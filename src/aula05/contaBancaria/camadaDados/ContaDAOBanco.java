@@ -38,5 +38,11 @@ public class ContaDAOBanco implements ContaDAO{
         System.out.println("Recuperou as contas do banco " + numeroBanco + " do Oracle");
         return null;
     }
+
+    @Override
+    public boolean existe(String numero) {
+        // TODO Auto-generated method stub
+        return false;
+    }
     
 }

@@ -12,6 +12,7 @@ public interface ContaDAO {
     void excluir(Conta conta);
     Conta buscar(String numero) throws RegistroNaoEncontradoException;
     void atualizar(Conta conta);
+    boolean existe(String numero);
     List<Conta> listar();
     List<Conta> listarContasDoBanco(Integer numeroBanco, String nomeBanco);
 }

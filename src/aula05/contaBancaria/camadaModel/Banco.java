@@ -2,6 +2,7 @@ package aula05.contaBancaria.camadaModel;
 
 import java.util.ArrayList;
 
+import aula05.contaBancaria.exceptions.FalhaTransacaoException;
 import aula05.contaBancaria.exceptions.SaldoInsuficienteParaSaqueException;
 
 public class Banco {
@@ -19,7 +20,7 @@ public class Banco {
         String contaOrigem, 
         String contaDestino,
         Double valor
-    ) throws SaldoInsuficienteParaSaqueException {
+    ) throws SaldoInsuficienteParaSaqueException, FalhaTransacaoException {
         Conta destino = null;
         Conta origem = null;
 
@@ -51,7 +52,7 @@ public class Banco {
         String cpf, 
         String nomeTitular,
         Double valor
-    ) throws SaldoInsuficienteParaSaqueException {
+    ) throws SaldoInsuficienteParaSaqueException, FalhaTransacaoException {
         Conta origem = null;
 
         for (int i = 0; i < contas.size(); i++) {

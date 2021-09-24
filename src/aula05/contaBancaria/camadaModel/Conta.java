@@ -32,17 +32,6 @@ public abstract class Conta {
         setSaldo(saldo);
     }
 
-    // Métodos (Ações)
-    // modificador de acesso - tipo de retorno - NomeDaClasse - parametros
-    public void debitarSaldo(Double saque) throws SaldoInsuficienteParaSaqueException, FalhaTransacaoException {
-        if (podeSacar(saque)) {
-            saldo -= saque;
-            registrarTransacao(saque, Transacao.DEBITO);
-        } else {
-            throw new SaldoInsuficienteParaSaqueException(saldo);
-        }
-    }
-
     public void creditarSaldo(Double valor) throws FalhaTransacaoException {
         if(saldo != null) {
             saldo += valor;
@@ -52,14 +41,8 @@ public abstract class Conta {
         }
     }
 
-    abstract protected boolean podeSacar(Double saque);
+    public abstract boolean podeSacar(Double saque);
 
-    private void registrarTransacao(Double valor, String tipoTransacao) throws FalhaTransacaoException {
-        Transacao transacao = new Transacao(valor, tipoTransacao);
-        transacoes.add(transacao);
-
-        throw new FalhaTransacaoException(tipoTransacao);
-    }
 
     public Double getSaldo() {
         return saldo;
@@ -73,7 +56,7 @@ public abstract class Conta {
         return this.transacoes;
     }
 
-    protected void setSaldo(Double saldo) {
+    public void setSaldo(Double saldo) {
         if(saldo != null) {
             this.saldo = saldo;
         } else {

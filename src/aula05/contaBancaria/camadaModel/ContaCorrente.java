@@ -10,7 +10,7 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
-    protected boolean podeSacar(Double saque) {
+    public boolean podeSacar(Double saque) {
         return super.getSaldo() != null && saque <= (super.getSaldo() + limite);
     }
 }
