@@ -8,6 +8,7 @@ import aula05.contaBancaria.ContaPoupanca;
 import aula05.contaBancaria.dao.ContaDAO;
 import aula05.contaBancaria.dao.ContaDAOBanco;
 import aula05.contaBancaria.dao.ContaDAOMemoria;
+import aula05.contaBancaria.exceptions.FalhaTransacaoException;
 import aula05.contaBancaria.exceptions.NumeroNulloException;
 import aula05.contaBancaria.exceptions.RegistroNaoEncontradoException;
 import aula05.contaBancaria.exceptions.SaldoInsuficienteParaSaqueException;
@@ -22,9 +23,13 @@ public class App {
             contaPoupancaUm.debitarSaldo(150.0);
         } catch (SaldoInsuficienteParaSaqueException e) {
             System.out.println(e.getMessage());
+            System.out.println("Saldo atual da conta: " + e.getSaldoAtual());
+        } catch (FalhaTransacaoException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Tipo de transacao que deu erro: " + e.getTipoTransacao());
         }
 
-        contaPoupancaUm.debitarSaldo(150.0);
+        // contaPoupancaUm.debitarSaldo(150.0);
 
         // ArrayList<Conta> listaContas = new ArrayList<Conta>();
 

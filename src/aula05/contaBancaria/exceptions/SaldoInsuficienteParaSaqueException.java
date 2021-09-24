@@ -1,11 +1,21 @@
 package aula05.contaBancaria.exceptions;
 
+import aula05.contaBancaria.enums.Mensagens;
+
 public class SaldoInsuficienteParaSaqueException extends Exception {
-    public SaldoInsuficienteParaSaqueException(String mensagem) {
+    private Double saldoAtual;
+
+    public SaldoInsuficienteParaSaqueException(String mensagem, Double saldoAtual) {
         super(mensagem);
+        this.saldoAtual = saldoAtual;
     }
     
-    public SaldoInsuficienteParaSaqueException() {
-        super("Não há saldo suficiente!!!");
+    public SaldoInsuficienteParaSaqueException(Double saldoAtual) {
+        super(Mensagens.MENSAGEM_SALDO_INSUFICIENTE.getMensagem());
+        this.saldoAtual = saldoAtual;
+    }
+
+    public Double getSaldoAtual() {
+        return this.saldoAtual;
     }
 }

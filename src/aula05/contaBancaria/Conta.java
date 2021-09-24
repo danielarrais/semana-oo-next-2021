@@ -2,6 +2,7 @@ package aula05.contaBancaria;
 
 import java.util.ArrayList;
 
+import aula05.contaBancaria.exceptions.FalhaTransacaoException;
 import aula05.contaBancaria.exceptions.SaldoInsuficienteParaSaqueException;
 
 // modificador de acesso - class - NomeDaClasse
@@ -33,27 +34,32 @@ public abstract class Conta {
 
     // Métodos (Ações)
     // modificador de acesso - tipo de retorno - NomeDaClasse - parametros
-    public void debitarSaldo(Double saque) throws SaldoInsuficienteParaSaqueException {
+    public void debitarSaldo(Double saque) throws SaldoInsuficienteParaSaqueException, FalhaTransacaoException {
         if (podeSacar(saque)) {
             saldo -= saque;
-            Transacao transacao = new Transacao(saque, Transacao.DEBITO);
-            transacoes.add(transacao);
+            registrarTransacao(saque, Transacao.DEBITO);
         } else {
-            throw new SaldoInsuficienteParaSaqueException();
+            throw new SaldoInsuficienteParaSaqueException(saldo);
         }
     }
 
-    public void creditarSaldo(Double valor) {
+    public void creditarSaldo(Double valor) throws FalhaTransacaoException {
         if(saldo != null) {
             saldo += valor;
-            Transacao transacao = new Transacao(valor, Transacao.CREDITO);
-            transacoes.add(transacao);
+            registrarTransacao(valor, Transacao.CREDITO);
         } else {
             System.out.println("Valor inválido!!!");
         }
     }
 
     abstract protected boolean podeSacar(Double saque);
+
+    private void registrarTransacao(Double valor, String tipoTransacao) throws FalhaTransacaoException {
+        Transacao transacao = new Transacao(valor, tipoTransacao);
+        transacoes.add(transacao);
+
+        throw new FalhaTransacaoException(tipoTransacao);
+    }
 
     public Double getSaldo() {
         return saldo;
@@ -74,8 +80,6 @@ public abstract class Conta {
             this.saldo = 0.0;
         }
     }
-
-
 
     @Override
     public String toString() {
